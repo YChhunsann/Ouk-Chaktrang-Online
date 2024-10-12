@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="home.css">
+    <title>Chess</title>
+</head>
+<body>
+
+    <div class="logo3"></div>
+    <div id="fixed-container">
+        <div id="create-room-container">
+            <!-- Name -->
+            <div id="name">
+                <label id="label-name" for="input_roomName">Name: </label>
+                <input type="text" id="input_roomName">
+            </div>
+
+            <!-- Create/Cancel buttons -->
+            <div id="container-cancel-create">
+                <button class= "button" id="btn_create">Create</button>
+                <button type="button" class= "button" id="btn_cancel">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <ul id="rooms">
+    </ul>
+    <div id="button-container">
+        <button type="button" class="button" id="btn_createRoom">Create Room</button>
+        <button type="button" class="button" id="btn_goToPage">Play with Sann</button>
+    </div>
+    <!--SCRIPTS-->
+    <script>
+        // Redirect to another page when button is clicked
+        document.getElementById('btn_goToPage').addEventListener('click', function() {
+            window.location.href = './build/web/index.html'; // Replace with the URL of your target page
+        });
+    </script>
+    <script src="./scripts/socket.io.slim.js"></script>
+    <script src="./scripts/jquery.min.js"></script>
+    <script src="./scripts/client_home.js"></script>
+</body>
+</html>

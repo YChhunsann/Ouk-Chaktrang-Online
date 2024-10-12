@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./match.css">
+    <title>Game Chat</title>
+</head>
+<body>
+    <div class="chat">
+        <div id="messages-container">
+            <ul id="messages"></ul>
+        </div>
+        <div id="input-container">
+            <input id="input" autocomplete="off" spellcheck="false" autocorrect="off" placeholder="Type your message..."/>
+        </div>
+    </div>
+
+    <div id="container">
+        <div class="game">
+            <table id="board"></table>
+        </div>
+    </div>
+    <div class="w3r-dot"><!-- Comment: Defines a container for the polka dot background pattern -->
+    </div><!-- Comment: End of the container for the polka dot background pattern -->
+
+    <!--SCRIPTS-->
+    <script src="./scripts/socket.io.slim.js"></script>
+    <script src="./scripts/jquery.min.js"></script>
+    <script src="./scripts/client_match.js"></script>
+</body>
+</html>

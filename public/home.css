@@ -1,0 +1,283 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+.logo3 {
+    margin: 0 auto; /* Center the div horizontally */
+    padding: 0;
+    background-image: url('spring-mountain.png'); /* Use quotes around the URL */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    background-position: center; /* Center the image */
+    background-size: cover; /* Make the image cover the entire div */
+    background-color: rgb(18, 58, 108); /* Fallback background color */
+    font-family: 'Roboto', sans-serif;
+    width: 600px; /* Width as 40% of the viewport width */
+    height: 600px; /* Height as 40 characters */
+    position: fixed; /* Fixes the position of the div */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Shift the div back by half its width and height */
+    z-index: -1; /* Optional: Bring the div above other elements */
+    opacity: 0.8;
+}
+
+body {
+    background-color: rgb(18, 58, 108);
+    overflow-x: hidden;
+}
+
+#create-room-container {
+    display: none;
+}
+
+/*#region Desktop */
+@media(min-width:501px) {
+
+   /*#region Home Page */
+#rooms {
+    /* Un-comment the necessary properties */
+    position: relative;
+    list-style-type: none; /* Removes default list style (like bullets or numbers) */
+    text-align: left; /* Aligns text to the left */
+    top: 0;
+    height: 84vh;
+    width: 100%;
+    overflow: auto;
+    padding-left: 0; /* Removes extra padding from the left of the list */
+    margin-left: 0; /* Aligns the list to the left */
+}
+
+#rooms li {
+    /* Un-comment the necessary properties */
+    border-bottom: 1px solid black;
+    padding: 1.75rem;
+    font-size: 2rem;
+    background: rgb(23, 88, 167);
+    transition: background 0.3s ease-in;
+    list-style: none; /* Ensures no bullet points or numbering */
+    margin: 0; /* Removes any default margin */
+    padding-left: 10px; /* Adds slight padding to move text away from the edge */
+    border-radius: 10px;
+}
+
+    #rooms li:hover {
+        background: rgb(76, 134, 204);
+        cursor: pointer;
+    }
+
+    /* Flex container for buttons */
+    #button-container {
+        position: fixed;
+        display: flex;
+        justify-content: center; /* Center the buttons */
+        bottom: 2%; /* Distance from bottom */
+        width: 100%; /* Full width */
+    }
+
+    #btn_createRoom,
+    #btn_goToPage {
+        height: 12%; /* Set height as needed */
+        width: 20%; /* Set width for both buttons */
+        font-size: 2rem;
+        margin: 0 10px; /* Space between buttons */
+    }
+
+    /*#endregion */
+
+    /*#region Create a room */
+    #fixed-container {
+        position: fixed;
+        width: 50%;
+        top: 22.5%;
+        left: 25%;
+        z-index: 1;
+    }
+
+    #create-room-container {
+        position: relative;
+        width: 100%;
+        height: 45vh;
+        align-items: flex-start;
+        flex: auto;
+        flex-direction: column;
+        border-radius: 15px;
+        background: rgb(226, 240, 211);
+    }
+
+    #create-room-container label {
+        background: none;
+    }
+
+    #name {
+        position: absolute;
+        top: 20%;
+        display: flex;
+        background: none;
+        font-size: 2rem;
+        margin-left: 10px;
+    }
+
+    #name label {
+        margin-right: 2rem;
+    }
+
+    #container-cancel-create {
+        width: 100%;
+        bottom: 0;
+        position: absolute;
+        background: none;
+        display: flex;
+        justify-content: space-around;
+    }
+
+    #container-cancel-create .button {
+        font-size: 2rem;
+        width: 45%;
+        overflow: hidden;
+        margin-bottom: 10px;
+    }
+
+    /*#endregion */
+
+    .button {
+        border: 2px solid rgba(43, 43, 43, 0.336);
+        border-radius: 10px;
+        background-color: rgb(255, 255, 255);
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease; /* Transition effect */
+    }
+
+    .button:hover {
+        background-color: rgb(139, 177, 101); /* Change background color on hover */
+        transform: scale(1.05); /* Slightly increase size on hover */
+    }
+
+}
+
+/*#endregion */
+
+/*#region Mobile */
+@media(max-width:500px) {
+
+    #background-image {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 50%; /* Adjust the percentage or set a fixed size like 500px */
+        height: auto; /* This keeps the aspect ratio */
+        z-index: -1; /* Send the image to the background */
+        filter: blur(10px);
+    }
+
+    /*#region Home Page */
+    #rooms {
+        position: relative;
+        list-style-type: none;
+        text-align: center;
+        top: 0;
+        height: 84vh;
+        width: 100%;
+        overflow: auto;
+    }
+
+    #rooms li:nth-child(even) {
+        background: rgb(139, 177, 101);
+    }
+
+    #rooms li {
+        border-bottom: 1px solid black;
+        padding: 1.75rem;
+        font-size: 2rem;
+        overflow: hidden;
+    }
+
+    /* Flex container for buttons */
+    #button-container {
+        position: fixed;
+        display: flex;
+        justify-content: center; /* Center the buttons */
+        bottom: 2%; /* Distance from bottom */
+        width: 100%; /* Full width */
+    }
+
+    #btn_createRoom,
+    #btn_goToPage {
+        height: 12%; /* Set height as needed */
+        width: 90%; /* Full width for mobile buttons */
+        font-size: 2rem;
+        margin: 0 5%; /* Space between buttons */
+    }
+
+    /*#endregion */
+
+    /*#region Create a room */
+    #create-room-container {
+        position: fixed;
+        display: none;
+        flex-direction: column;
+        background: rgb(172, 205, 139);
+        width: 90%;
+        height: 60vh;
+        top: 10%;
+        border-radius: 15px;
+        left: 4%;
+        z-index: 1;
+        background: rgba(118, 150, 86);
+        font-size: 1.2rem;
+        overflow: auto;
+    }
+
+    input {
+        margin-top: 0.4rem;
+    }
+
+    #name {
+        position: absolute;
+        background: none;
+        margin-bottom: 3rem;
+        left: 10%;
+        top: 10%;
+    }
+
+    #name input {
+        width: 50%;
+    }
+
+    #input_roomName {
+        height: 1.2rem;
+    }
+
+    #label-name {
+        background: none;
+        border-radius: 5px;
+        padding: 5px 5px;
+        margin-right: 1rem;
+    }
+
+    #container-cancel-create {
+        background: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        margin-top: 17.5rem;
+    }
+
+    #container-cancel-create .button {
+        font-size: 1.4rem;
+        width: 50%;
+        padding: 15px 0px;
+    }
+
+    /*#endregion */
+
+    .button {
+        border: 1px solid rgb(255, 255, 255);
+        border-radius: 10px;
+        background-color: rgb(255, 255, 255);
+        transition: background-color 0.3s ease, transform 0.2s ease; /* Transition effect */
+    }
+
+    .button:hover {
+        background-color: rgba(118, 150, 86); /* Change background color on hover */
+        transform: scale(1.05); /* Slightly increase size on hover */
+    }
+}
+/*#endregion */

@@ -1,0 +1,354 @@
+[
+    {
+        "notation": "A8",
+        "piece": {
+            "color": "black",
+            "name": "rook",
+            "moved": false
+        }
+    },
+    {
+        "notation": "B8",
+        "piece": {
+            "color": "black",
+            "name": "knight",
+            "moved": false
+        }
+    },
+    {
+        "notation": "C8",
+        "piece": {
+            "color": "black",
+            "name": "bishop",
+            "moved": false
+        }
+    },
+    {
+        "notation": "D8",
+        "piece": {
+            "color": "black",
+            "name": "queen",
+            "moved": false
+        }
+    },
+    {
+        "notation": "E8",
+        "piece": {
+            "color": "black",
+            "name": "king",
+            "moved": false
+        }
+    },
+    {
+        "notation": "F8",
+        "piece": {
+            "color": "black",
+            "name": "bishop",
+            "moved": false
+        }
+    },
+    {
+        "notation": "G8",
+        "piece": {
+            "color": "black",
+            "name": "knight",
+            "moved": false
+        }
+    },
+    {
+        "notation": "H8",
+        "piece": {
+            "color": "black",
+            "name": "rook",
+            "moved": false
+        }
+    },
+    {
+        "notation": "A7"
+    },
+    {
+        "notation": "B7"
+    },
+    {
+        "notation": "C7"
+    },
+    {
+        "notation": "D7"
+    },
+    {
+        "notation": "E7"
+    },
+    {
+        "notation": "F7"
+    },
+    {
+        "notation": "G7"
+    },
+    {
+        "notation": "H7"
+    },
+    {
+        "notation": "A6",
+        "piece": {
+            "color": "black",
+            "name": "pawn",
+            "moved": false
+        }
+    },
+    {
+        "notation": "B6",
+        "piece": {
+            "color": "black",
+            "name": "pawn",
+            "moved": false
+        }
+    },
+    {
+        "notation": "C6",
+        "piece": {
+            "color": "black",
+            "name": "pawn",
+            "moved": false
+        }
+    },
+    {
+        "notation": "D6",
+        "piece": {
+            "color": "black",
+            "name": "pawn",
+            "moved": false
+        }
+    },
+    {
+        "notation": "E6",
+        "piece": {
+            "color": "black",
+            "name": "pawn",
+            "moved": false
+        }
+    },
+    {
+        "notation": "F6",
+        "piece": {
+            "color": "black",
+            "name": "pawn",
+            "moved": false
+        }
+    },
+    {
+        "notation": "G6",
+        "piece": {
+            "color": "black",
+            "name": "pawn",
+            "moved": false
+        }
+    },
+    {
+        "notation": "H6",
+        "piece": {
+            "color": "black",
+            "name": "pawn",
+            "moved": false
+        }
+    },
+    {
+        "notation": "A5"
+    },
+    {
+        "notation": "B5"
+    },
+    {
+        "notation": "C5"
+    },
+    {
+        "notation": "D5"
+    },
+    {
+        "notation": "E5"
+    },
+    {
+        "notation": "F5"
+    },
+    {
+        "notation": "G5"
+    },
+    {
+        "notation": "H5"
+    },
+    {
+        "notation": "A4"
+    },
+    {
+        "notation": "B4"
+    },
+    {
+        "notation": "C4"
+    },
+    {
+        "notation": "D4"
+    },
+    {
+        "notation": "E4"
+    },
+    {
+        "notation": "F4"
+    },
+    {
+        "notation": "G4"
+    },
+    {
+        "notation": "H4"
+    },
+    {
+        "notation": "A3",
+        "piece": {
+            "color": "white",
+            "name": "pawn",
+            "moved": false
+        }
+    },
+    {
+        "notation": "B3",
+        "piece": {
+            "color": "white",
+            "name": "pawn",
+            "moved": false
+        }
+    },
+    {
+        "notation": "C3",
+        "piece": {
+            "color": "white",
+            "name": "pawn",
+            "moved": false
+        }
+    },
+    {
+        "notation": "D3",
+        "piece": {
+            "color": "white",
+            "name": "pawn",
+            "moved": false
+        }
+    },
+    {
+        "notation": "E3",
+        "piece": {
+            "color": "white",
+            "name": "pawn",
+            "moved": false
+        }
+    },
+    {
+        "notation": "F3",
+        "piece": {
+            "color": "white",
+            "name": "pawn",
+            "moved": false
+        }
+    },
+    {
+        "notation": "G3",
+        "piece": {
+            "color": "white",
+            "name": "pawn",
+            "moved": false
+        }
+    },
+    {
+        "notation": "H3",
+        "piece": {
+            "color": "white",
+            "name": "pawn",
+            "moved": false
+        }
+    },
+    {
+        "notation": "A2"
+    },
+    {
+        "notation": "B2"
+    },
+    {
+        "notation": "C2"
+    },
+    {
+        "notation": "D2"
+    },
+    {
+        "notation": "E2"
+    },
+    {
+        "notation": "F2"
+    },
+    {
+        "notation": "G2"
+    },
+    {
+        "notation": "H2"
+    },
+    {
+        "notation": "A1",
+        "piece": {
+            "color": "white",
+            "name": "rook",
+            "moved": false
+        }
+    },
+    {
+        "notation": "B1",
+        "piece": {
+            "color": "white",
+            "name": "knight",
+            "moved": false
+        }
+    },
+    {
+        "notation": "C1",
+        "piece": {
+            "color": "white",
+            "name": "bishop",
+            "moved": false
+        }
+    },
+    {
+        "notation": "D1",
+        "piece": {
+            "color": "white",
+            "name": "king",
+            "moved": false
+        }
+    },
+    {
+        "notation": "E1",
+        "piece": {
+            "color": "white",
+            "name": "queen",
+            "moved": false
+        }
+    },
+    {
+        "notation": "F1",
+        "piece": {
+            "color": "white",
+            "name": "bishop",
+            "moved": false
+        }
+    },
+    {
+        "notation": "G1",
+        "piece": {
+            "color": "white",
+            "name": "knight",
+            "moved": false
+        }
+    },
+    {
+        "notation": "H1",
+        "piece": {
+            "color": "white",
+            "name": "rook",
+            "moved": false
+        }
+    }
+]
