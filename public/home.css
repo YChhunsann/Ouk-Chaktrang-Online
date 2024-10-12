@@ -3,14 +3,14 @@
 .logo3 {
     margin: 0 auto; /* Center the div horizontally */
     padding: 0;
-    background-image: url('spring-mountain.png'); /* Use quotes around the URL */
+    background-image: url('./images/pieces/white_knight.png'); /* Use quotes around the URL */
     background-repeat: no-repeat; /* Prevent the image from repeating */
     background-position: center; /* Center the image */
     background-size: cover; /* Make the image cover the entire div */
     background-color: rgb(18, 58, 108); /* Fallback background color */
     font-family: 'Roboto', sans-serif;
-    width: 600px; /* Width as 40% of the viewport width */
-    height: 600px; /* Height as 40 characters */
+    width: 400px; /* Width as 40% of the viewport width */
+    height: 400px; /* Height as 40 characters */
     position: fixed; /* Fixes the position of the div */
     top: 50%; /* Center vertically */
     left: 50%; /* Center horizontally */
@@ -68,7 +68,7 @@ body {
         position: fixed;
         display: flex;
         justify-content: center; /* Center the buttons */
-        bottom: 2%; /* Distance from bottom */
+        bottom: 5%; /* Distance from bottom */
         width: 100%; /* Full width */
     }
 
