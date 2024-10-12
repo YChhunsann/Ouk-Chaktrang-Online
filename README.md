@@ -1,4 +1,4 @@
-## Chess
+## Ouk Chaktrang
 
 ![gameplay](https://i.imgur.com/5DeoKtF.gif)
 
