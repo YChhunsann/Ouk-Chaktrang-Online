@@ -1,21 +1,6 @@
 
-.w3r-dot { /* Comment: Styles the element for the polka dot background pattern */
-  width: 2400px; /* Comment: Sets the width of the element */
-  height: 2400px; /* Comment: Sets the height of the element */
-  background-color: #001810; /* Comment: Sets the background color of the element */
-  background-image: radial-gradient(#ffffff 10%, transparent 11%), /* Comment: Defines a radial gradient for black dots */
-    radial-gradient(#000000 10%, transparent 11%); /* Comment: Defines a radial gradient for red dots */
-  background-size: 15px 15px; /* Comment: Sets the size of the background dots */
-  background-position: 0 0, 90px 90px; /* Comment: Sets the position of the background dots */
-  background-repeat: repeat; /* Comment: Specifies that the background pattern should repeat */
-}
-
-
-
-
-
 body{
-    background: #333;
+    background: rgb(120, 120, 120);
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -92,7 +77,7 @@ body{
     left: 7.5%;
     width: 17.5%;
     height: 55vh;
-    background: rgb(125, 172, 73);
+    background: rgb(90, 144, 209);
     border: 1px solid black;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -116,7 +101,7 @@ body{
     height: 100%;
     width: 100%;
     font-size: 1rem;
-    background-color: rgb(146, 188, 101);
+    background-color: rgb(125, 178, 242);
     border: 0;
     }
 
