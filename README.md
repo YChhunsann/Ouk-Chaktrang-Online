@@ -1,6 +1,6 @@
 ## Ouk Chaktrang
 
-![gameplay](.\public\spring-mountain.png)
+![gameplay](./public/spring-mountain.png)
 
 Made using socket.io & express
 
