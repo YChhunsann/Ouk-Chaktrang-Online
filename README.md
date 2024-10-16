@@ -1,6 +1,6 @@
 ## Ouk Chaktrang
 
-![gameplay](https://i.imgur.com/5DeoKtF.gif)
+![gameplay](.\public\spring-mountain.png)
 
 Made using socket.io & express
 
