@@ -10,7 +10,7 @@ $('#btn_createRoom').on('click', onCreateRoom);
 $('#btn_cancel').on('click', cancelRoomCreation);
 $('#btn_create').on('click', createRoom);
 $(document).on('keypress', e => {
-    if (e.which == 13){
+    if (e.which == 13) {
         $('#btn_create').click();
     }
 });
@@ -19,50 +19,33 @@ $(document).on('keypress', e => {
 
 //#region Create a room
 
-//'Create Room' on click [Creates a room or deletes a created one]
-function onCreateRoom(){
-
-    //Create a room
-    if (roomCreated == false){
-
-        //Disable the create room button
+function onCreateRoom() {
+    if (!roomCreated) {
         $('#btn_createRoom').prop('disabled', 'disabled');
-
-        //Display the div
         $('#create-room-container').css('display', 'flex');
-
-        //Focus on the name input
         $('#input_roomName').focus();
-    }
-
-    //Delete the created room
-    else{
+    } else {
         roomCreated = false;
-        $('#btn_createRoom').text(`Create a Room`);
+        $('#btn_createRoom').text('Create a Room');
         client.emit('deleteRoom');
     }
 }
 
-//Click the 'cancel' button while creating a room, simply return to the main menu
-function cancelRoomCreation(){
-    //Enable the create room button
+function cancelRoomCreation() {
     $('#btn_createRoom').prop('disabled', false);
-
-    //Display the div
     $('#create-room-container').css('display', 'none');
 }
 
-//Finalize the room creation
-function createRoom(){
+function createRoom() {
     let roomName = $('#input_roomName').val();
     $('#input_roomName').val('');
 
     let room = {
-        name: roomName == '' ? 'unnamed' : roomName
+        name: roomName === '' ? 'unnamed' : roomName
     };
 
     roomCreated = true;
-    $('#btn_createRoom').text(`Delete '${roomName}'`);
+    $('#btn_createRoom').text(`Delete '${room.name}'`);
     $('#btn_createRoom').prop('disabled', false);
     $('#create-room-container').css('display', 'none');
     client.emit('createRoom', room);
@@ -72,23 +55,15 @@ function createRoom(){
 
 //#region Server communication
 
-//Update the rooms list
 client.on('updateRooms', rooms => {
-
     $('#rooms').empty();
-    for(let i = 0; i < rooms.length; i++){
-        $('#rooms').append(`<li value='${rooms[i].matchID}'>Room: ${rooms[i].name}</li>`);
-        console.log('matchid: ' + rooms[i].matchID);
-        console.log('clientid: ' + client.id);
-        
-    }
+    rooms.forEach(room => {
+        $('#rooms').append(`<li value="${room.matchID}">Room: ${room.name}</li>`);
+    });
 
-    //Room on click
     $('li').on('click', e => {
         let matchID = e.target.getAttribute('value');
-        
-        //If the user enters a room he hasn't created himself
-        if (matchID != client.id){
+        if (matchID !== client.id) {
             client.emit('joinRoom', matchID);
         }
     });

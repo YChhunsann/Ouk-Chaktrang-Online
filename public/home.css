@@ -1,14 +1,14 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url("https://fonts.googleapis.com/css?family=Roboto");
 
 .logo3 {
     margin: 0 auto; /* Center the div horizontally */
     padding: 0;
-    background-image: url('./images/pieces/white_knight.png'); /* Use quotes around the URL */
+    background-image: url("./images/pieces/white_knight.png"); /* Use quotes around the URL */
     background-repeat: no-repeat; /* Prevent the image from repeating */
     background-position: center; /* Center the image */
     background-size: cover; /* Make the image cover the entire div */
-    background-color: rgb(18, 58, 108); /* Fallback background color */
-    font-family: 'Roboto', sans-serif;
+    background-color: rgb(13, 71, 142); /* Fallback background color */
+    font-family: "Roboto", sans-serif;
     width: 400px; /* Width as 40% of the viewport width */
     height: 400px; /* Height as 40 characters */
     position: fixed; /* Fixes the position of the div */
@@ -20,7 +20,7 @@
 }
 
 body {
-    background-color: rgb(18, 58, 108);
+    background-color: rgb(13, 71, 142);
     overflow-x: hidden;
 }
 
@@ -29,34 +29,33 @@ body {
 }
 
 /*#region Desktop */
-@media(min-width:501px) {
+@media (min-width: 501px) {
+    /*#region Home Page */
+    #rooms {
+        /* Un-comment the necessary properties */
+        position: relative;
+        list-style-type: none; /* Removes default list style (like bullets or numbers) */
+        text-align: left; /* Aligns text to the left */
+        top: 0;
+        height: 84vh;
+        width: 100%;
+        overflow: auto;
+        padding-left: 0; /* Removes extra padding from the left of the list */
+        margin-left: 0; /* Aligns the list to the left */
+    }
 
-   /*#region Home Page */
-#rooms {
-    /* Un-comment the necessary properties */
-    position: relative;
-    list-style-type: none; /* Removes default list style (like bullets or numbers) */
-    text-align: left; /* Aligns text to the left */
-    top: 0;
-    height: 84vh;
-    width: 100%;
-    overflow: auto;
-    padding-left: 0; /* Removes extra padding from the left of the list */
-    margin-left: 0; /* Aligns the list to the left */
-}
-
-#rooms li {
-    /* Un-comment the necessary properties */
-    border-bottom: 1px solid black;
-    padding: 1.75rem;
-    font-size: 2rem;
-    background: rgb(23, 88, 167);
-    transition: background 0.3s ease-in;
-    list-style: none; /* Ensures no bullet points or numbering */
-    margin: 0; /* Removes any default margin */
-    padding-left: 10px; /* Adds slight padding to move text away from the edge */
-    border-radius: 10px;
-}
+    #rooms li {
+        /* Un-comment the necessary properties */
+        border-bottom: 1px solid black;
+        padding: 1.75rem;
+        font-size: 2rem;
+        background: rgb(23, 88, 167);
+        transition: background 0.3s ease-in;
+        list-style: none; /* Ensures no bullet points or numbering */
+        margin: 0; /* Removes any default margin */
+        padding-left: 10px; /* Adds slight padding to move text away from the edge */
+        border-radius: 10px;
+    }
 
     #rooms li:hover {
         background: rgb(76, 134, 204);
@@ -99,7 +98,7 @@ body {
         flex: auto;
         flex-direction: column;
         border-radius: 15px;
-        background: rgb(226, 240, 211);
+        background: rgb(237, 228, 228);
     }
 
     #create-room-container label {
@@ -142,21 +141,63 @@ body {
         border-radius: 10px;
         background-color: rgb(255, 255, 255);
         cursor: pointer;
-        transition: background-color 0.3s ease, transform 0.2s ease; /* Transition effect */
+        transition:
+            background-color 0.3s ease,
+            transform 0.2s ease; /* Transition effect */
     }
 
     .button:hover {
-        background-color: rgb(139, 177, 101); /* Change background color on hover */
+        background-color: rgb(76, 134, 204); /* Change background color on hover */
         transform: scale(1.05); /* Slightly increase size on hover */
     }
 
+    #room-list-container {
+        width: 400px;
+        padding: 20px;
+        background-color: rgb(148, 193, 248);
+        border-radius: 10px;
+        margin: 60px;
+    }
+
+    #room-list-container h2 {
+        font-size: 1.5rem;
+        text-align: center;
+        color: white; /* Change text color for better visibility */
+        height: 30px;
+        width: 100%; /* Make it full width */
+        background-color: rgb(95, 95, 251); /* Change header background color */
+        margin: 0; /* Remove margin */
+        border-radius: 10px; /* Add border radius for rounded corners */
+        padding: 20px 0; /* Add padding for vertical space */
+    }
+
+    #rooms {
+        list-style-type: none;
+        padding: 0;
+        max-height: 50vh;
+        overflow-y: auto;
+    }
+
+    #rooms li {
+        background-color: rgb(255, 255, 255);
+        color: black;
+        padding: 15px;
+        margin: 10px 0;
+        font-size: 1.5rem;
+        border-radius: 10px;
+        transition: background 0.3s ease;
+    }
+
+    #rooms li:hover {
+        background-color: rgb(76, 134, 204);
+        cursor: pointer;
+    }
 }
 
 /*#endregion */
 
 /*#region Mobile */
-@media(max-width:500px) {
-
+@media (max-width: 500px) {
     #background-image {
         position: fixed;
         top: 0;
@@ -179,7 +220,7 @@ body {
     }
 
     #rooms li:nth-child(even) {
-        background: rgb(139, 177, 101);
+        background: rgb(255, 255, 255);
     }
 
     #rooms li {
@@ -213,14 +254,14 @@ body {
         position: fixed;
         display: none;
         flex-direction: column;
-        background: rgb(172, 205, 139);
+        background: rgb(255, 255, 255);
         width: 90%;
         height: 60vh;
         top: 10%;
         border-radius: 15px;
         left: 4%;
         z-index: 1;
-        background: rgba(118, 150, 86);
+        background: rgb(255, 255, 255);
         font-size: 1.2rem;
         overflow: auto;
     }
@@ -272,12 +313,51 @@ body {
         border: 1px solid rgb(255, 255, 255);
         border-radius: 10px;
         background-color: rgb(255, 255, 255);
-        transition: background-color 0.3s ease, transform 0.2s ease; /* Transition effect */
+        transition:
+            background-color 0.3s ease,
+            transform 0.2s ease; /* Transition effect */
     }
 
     .button:hover {
-        background-color: rgba(118, 150, 86); /* Change background color on hover */
+        background-color: rgb(76, 134, 204); /* Change background color on hover */
         transform: scale(1.05); /* Slightly increase size on hover */
+    }
+
+    /* Room list container */
+    #room-list-container {
+        width: 100%;
+        padding: 20px;
+        background-color: rgb(226, 240, 211);
+        border-radius: 10px;
+        margin: 20px 0;
+    }
+
+    #room-list-container h2 {
+        font-size: 2rem;
+        text-align: center;
+        color: rgb(13, 71, 142);
+    }
+
+    #rooms {
+        list-style-type: none;
+        padding: 0;
+        max-height: 50vh;
+        overflow-y: auto;
+    }
+
+    #rooms li {
+        background-color: rgb(23, 88, 167);
+        color: white;
+        padding: 15px;
+        margin: 10px 0;
+        font-size: 1.5rem;
+        border-radius: 10px;
+        transition: background 0.3s ease;
+    }
+
+    #rooms li:hover {
+        background-color: rgb(76, 134, 204);
+        cursor: pointer;
     }
 }
 /*#endregion */

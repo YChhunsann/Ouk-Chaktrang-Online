@@ -8,7 +8,6 @@
     <title>Ouk Chaktrang</title>
 </head>
 <body>
-
     <div class="logo3"></div>
     <div id="fixed-container">
         <div id="create-room-container">
@@ -20,23 +19,28 @@
 
             <!-- Create/Cancel buttons -->
             <div id="container-cancel-create">
-                <button class= "button" id="btn_create">Create</button>
-                <button type="button" class= "button" id="btn_cancel">Cancel</button>
+                <button class="button" id="btn_create">Create</button>
+                <button type="button" class="button" id="btn_cancel">Cancel</button>
             </div>
         </div>
     </div>
 
-    <ul id="rooms">
-    </ul>
+    <!-- Container to hold the list of rooms -->
+    <div id="room-list-container">
+        <h2>Available Rooms</h2>
+        <ul id="rooms">
+            <!-- Room list items will be added dynamically -->
+        </ul>
+    </div>
+
     <div id="button-container">
         <button type="button" class="button" id="btn_createRoom">Create Room</button>
         <button type="button" class="button" id="btn_goToPage">Play with AI</button>
     </div>
-    <!--SCRIPTS-->
+
     <script>
-        // Redirect to another page when button is clicked
         document.getElementById('btn_goToPage').addEventListener('click', function() {
-            window.location.href = './build/web/index.html'; // Replace with the URL of your target page
+            window.location.href = './build/web/index.html';
         });
     </script>
     <script src="./scripts/socket.io.slim.js"></script>
