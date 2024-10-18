@@ -425,92 +425,26 @@ function joinRoom() {
 //#region Chess Logic
 
 //Returns an array of possible castle moves
-// function pieceCanCastle(rookNotation, square) {
+function pieceCanCastle(rookNotation, square) {
 
-//     //Variables
+    // Only check if it's the king's first move and if it’s in its starting position
+    if (square.piece.name == 'king' && !square.piece.moved) {
+        let kingPos = square.notation;
 
-//     let color = black ? 'black' : 'white';
-//     let kingSquare = color == 'black' ? board[getSquareIndex(board.blackKing)] : board[getSquareIndex(board.whiteKing)];
-//     if (kingSquare.piece == undefined || square.piece.moved) {
-//         return true;
-//     }
+        // Special first move for the white king (D1 to B2 or F2)
+        if (kingPos === 'D1' && (rookNotation === 'B2' || rookNotation === 'F2')) {
+            return true; // Allow the move
+        }
 
-//     let kingNotation = kingSquare.notation;
-//     let pieceRank = square.notation.substring(1, 2);
-//     let rookFile = rookNotation.substring(0, 1);
-//     let rookFileNumber = fileConverter('number', rookFile);
-//     let kingFile = kingNotation.substring(0, 1);
-//     let kingFileNumber = fileConverter('number', kingFile);
+        // Special first move for the black king (E8 to C7 or G7)
+        if (kingPos === 'E8' && (rookNotation === 'C7' || rookNotation === 'G7')) {
+            return true; // Allow the move
+        }
+    }
 
-
-//     //The number of squares between the rook and the king
-//     let distance = Math.abs(rookFileNumber - kingFileNumber) - 1;
-//     //The first file to check
-//     let squareFile = Math.min(rookFileNumber, kingFileNumber) + 1;
-
-//     //Check each of the squares standing between them, all squares have the same rank(1 or 8), but different files
-//     for (let i = 0; i < distance; i++) {
-
-//         let squareNotation = fileConverter('file', squareFile) + pieceRank;
-//         let squareIndex = getSquareIndex(squareNotation);
-
-//         //If there is a piece between the king and the rook, stop checking, no castle allowed
-//         if (board[squareIndex].piece) {
-//             return false;
-//         }
-
-//         squareFile++;
-//     }
-
-//     //There aren't any pieces standing between the rook and the king, only condition to check is whether castling will put
-//     //The king in danger (opponent piece can directly move towards the king)
-
-
-//     let kingNewFile = fileConverter('file', Math.min(rookFileNumber, kingFileNumber) + 2);
-//     if (kingNewFile > 8 || kingNewFile < 1) {
-//         return true;
-//     }
-
-//     let kingNewPos = kingNewFile + pieceRank;
-//     let newPosIndex = getSquareIndex(kingNewPos);
-
-
-//     //Implement the castle on the board
-//     board[newPosIndex].piece = kingSquare.piece;
-
-//     //Delete the king's former position
-//     delete kingSquare.piece;
-
-//     //Calculate if an enemy piece will be able to target the king
-//     //Loop through the boards squares and look for opponent pieces
-//     for (let s = 0; s < board.length; s++) {
-
-//         //Enemy piece
-//         if (board[s].piece && board[s].piece.color != board[newPosIndex].piece.color) {
-
-//             let notation = board[s].notation;
-//             let opponentMoves = calculateMoves(notation, board);
-
-//             //Loop through each possible move
-//             for (let m = 0; m < opponentMoves.length; m++) {
-
-//                 //If after moving, an enemy piece can target the king, castling isn't allowed
-//                 if (opponentMoves[m] == kingNewPos) {
-//                     kingSquare.piece = board[newPosIndex].piece;
-//                     delete board[newPosIndex].piece;
-//                     return false;
-//                 }
-//             }
-//         }
-//     }
-
-//     //Revert the theoretical changes
-//     kingSquare.piece = board[newPosIndex].piece;
-//     delete board[newPosIndex].piece;
-
-//     //Add the castle move to the moves array
-//     return true;
-// }
+    // If it's not the first move, regular rules apply (if any)
+    return false;
+}
 
 //Returns the square's index by giving it the square's notation
 function getSquareIndex(notation) {
@@ -980,54 +914,54 @@ function calculateMoves(notation, board) {
 
     //#region Castle
 
-    // //If the selected piece has already moved, castling isn't allowed
-    // if  ((piece.name == 'rook' || piece.name ==  'king') && !pieceAlreadyMoved){
+    //If the selected piece has already moved, castling isn't allowed
+    if ((piece.name == 'rook' || piece.name == 'king') && !pieceAlreadyMoved) {
 
-    //     switch (piece.name) {
+        switch (piece.name) {
 
-    //         //A rook is selected
-    //         case 'rook':
-    //             let kingSquare = color == 'black' ? board[getSquareIndex(board.blackKing)] : board[getSquareIndex(board.whiteKing)];
+            //A rook is selected
+            case 'rook':
+                let kingSquare = color == 'black' ? board[getSquareIndex(board.blackKing)] : board[getSquareIndex(board.whiteKing)];
 
-    //             //If the king has moved, castling is not possible
-    //             if (!kingSquare.piece || kingSquare.piece.moved){
-    //                 break;
-    //             }
+                //If the king has moved, castling is not possible
+                if (!kingSquare.piece || kingSquare.piece.moved) {
+                    break;
+                }
 
-    //             if (pieceCanCastle(board[getSquareIndex(notation)].notation, board[getSquareIndex(notation)])){
-    //                 moves.push(kingSquare.notation);
-    //             }
+                if (pieceCanCastle(board[getSquareIndex(notation)].notation, board[getSquareIndex(notation)])) {
+                    moves.push(kingSquare.notation);
+                }
 
-    //         break;
+                break;
 
-    //         //A king is selected
-    //         case 'king':
+            //A king is selected
+            case 'king':
 
-    //             let rookFile = 'A';
+                let rookFile = 'A';
 
-    //             //Check if each of the rooks have moved
-    //             for (let i = 0; i < 2; i++){
+                //Check if each of the rooks have moved
+                for (let i = 0; i < 2; i++) {
 
-    //                 let rookSquare = board[getSquareIndex(`${rookFile}${pieceRank}`)];
-    //                 if (rookSquare.piece && !rookSquare.piece.moved){
+                    let rookSquare = board[getSquareIndex(`${rookFile}${pieceRank}`)];
+                    if (rookSquare.piece && !rookSquare.piece.moved) {
 
-    //                     //If the king can castle with this specific pawn, add two moves 1)click on the rook itself, 2)move two squares towards
-    //                     if (pieceCanCastle(rookSquare.notation, board[getSquareIndex(notation)])){
-    //                         let rookFileNumber = fileConverter('number', rookFile);
-    //                         let kingFile = notation.substring(0, 1);
-    //                         let kingFileNumber = fileConverter('number', kingFile);
-    //                         let emptySquareFile = fileConverter('file', Math.min(rookFileNumber, kingFileNumber) + 2);
-    //                         let emptySquareNotation = emptySquareFile + pieceRank;
-    //                         moves.push(rookSquare.notation, emptySquareNotation);
-    //                     }
-    //                 }
+                        //If the king can castle with this specific pawn, add two moves 1)click on the rook itself, 2)move two squares towards
+                        if (pieceCanCastle(rookSquare.notation, board[getSquareIndex(notation)])) {
+                            let rookFileNumber = fileConverter('number', rookFile);
+                            let kingFile = notation.substring(0, 1);
+                            let kingFileNumber = fileConverter('number', kingFile);
+                            let emptySquareFile = fileConverter('file', Math.min(rookFileNumber, kingFileNumber) + 2);
+                            let emptySquareNotation = emptySquareFile + pieceRank;
+                            moves.push(rookSquare.notation, emptySquareNotation);
+                        }
+                    }
 
-    //                 rookFile = 'H';
-    //             }
+                    rookFile = 'H';
+                }
 
-    //         break;
-    //     }
-    // }
+                break;
+        }
+    }
 
     //#endregion
 
@@ -1440,57 +1374,39 @@ function implementMove(move) {
             }
             break;
 
-        // case 'king':
-        //     //White king
-        //     if (pieceColor == 'white') {
-        //         board.whiteKing = move.to;
-        //     }
+        case 'king':
+            // Check if the king is making its first move
+            if (!board[formerIndex].piece.moved) {
 
-        //     //Black king
-        //     else {
-        //         board.blackKing = move.to;
-        //     }
+                // Special move for the white king on its first move (D1 to B2 or F2)
+                if (pieceColor == 'white' && move.from === 'D1' && (move.to === 'B2' || move.to === 'F2')) {
+                    board.whiteKing = move.to;
+                }
+                // Special move for the black king on its first move (E8 to C7 or G7)
+                else if (pieceColor == 'black' && move.from === 'E8' && (move.to === 'C7' || move.to === 'G7')) {
+                    board.blackKing = move.to;
+                }
+                // Regular king move logic after the first move
+                else {
+                    if (pieceColor == 'white') {
+                        board.whiteKing = move.to;
+                    } else {
+                        board.blackKing = move.to;
+                    }
+                }
 
-        //     //Check for castle
-        //     let formerFileNumber = fileConverter('number', formerFile);
-        //     let newFileNumber = fileConverter('number', newFile);
-        //     let stepsTaken = Math.abs(newFileNumber - formerFileNumber);
-        //     if (stepsTaken == 2) {
-
-        //         let rookFormerFile;
-        //         let rookNewFile;
-        //         //Kings moves to C, rook moves to D
-        //         if (newFile == 'C') {
-        //             rookFormerFile = 'A';
-        //             rookNewFile = 'D';
-        //         }
-
-        //         //King moves to G, rook moves to F
-        //         else if (newFile == 'G') {
-        //             rookFormerFile = 'H';
-        //             rookNewFile = 'F';
-        //         }
-
-        //         let rookFormerNotation = rookFormerFile + newRank;
-        //         let rookNewNotation = rookNewFile + newRank;
-
-        //         let formerRookIndex = getSquareIndex(rookFormerNotation);
-        //         let newRookIndex = getSquareIndex(rookNewNotation);
-
-        //         //Add the rook's image to his new position
-        //         let rookImg = $($(`#${rookFormerNotation}`)[0].children[0]);
-        //         let destination = $($(`#${rookNewNotation}`)[0]);
-
-        //         rookImg.appendTo(destination);
-
-        //         //Add rook to the new position
-        //         board[newRookIndex].piece = board[formerRookIndex].piece;
-
-        //         //Remove from the former position
-        //         delete board[formerRookIndex].piece;
-
-        //     }
-        //     break;
+                // Mark the king as having moved
+                board[formerIndex].piece.moved = true;
+            }
+            // If it's not the king's first move, treat it like a regular move
+            else {
+                if (pieceColor == 'white') {
+                    board.whiteKing = move.to;
+                } else {
+                    board.blackKing = move.to;
+                }
+            }
+            break;
     }
 
     //#endregion
