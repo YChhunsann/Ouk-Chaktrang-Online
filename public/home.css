@@ -7,7 +7,7 @@
     background-repeat: no-repeat; /* Prevent the image from repeating */
     background-position: center; /* Center the image */
     background-size: cover; /* Make the image cover the entire div */
-    background-color: rgb(13, 71, 142); /* Fallback background color */
+    background-color: rgb(95, 95, 251); /* Fallback background color */
     font-family: "Roboto", sans-serif;
     width: 400px; /* Width as 40% of the viewport width */
     height: 400px; /* Height as 40 characters */
@@ -20,7 +20,7 @@
 }
 
 body {
-    background-color: rgb(13, 71, 142);
+    background-color: rgb(95, 95, 251);
     overflow-x: hidden;
 }
 
@@ -157,6 +157,8 @@ body {
         background-color: rgb(148, 193, 248);
         border-radius: 10px;
         margin: 60px;
+        margin-top: 100px;
+        float: right;
     }
 
     #room-list-container h2 {
