@@ -422,8 +422,6 @@ function joinRoom() {
 
 //#endregion
 
-<<<<<<< HEAD
-=======
 //#region Chess Logic
 
 //Returns an array of possible castle moves
@@ -504,8 +502,6 @@ function pieceCanCastle(rookNotation, square) {
     // Add the castle move to the moves array
     return true;
 }
-
->>>>>>> parent of 8902138 (Revert "Update client js")
 
 //Returns the square's index by giving it the square's notation
 function getSquareIndex(notation) {
@@ -972,9 +968,6 @@ function calculateMoves(notation, board) {
 
         //#endregion
     }
-<<<<<<< HEAD
-=======
-
     //#region Castle
 
     //If the selected piece has already moved, castling isn't allowed
@@ -1027,8 +1020,6 @@ function calculateMoves(notation, board) {
     }
 
     //#endregion
-
->>>>>>> parent of 8902138 (Revert "Update client js")
     return moves;
 }
 
@@ -1437,9 +1428,6 @@ function implementMove(move) {
                 board[newIndex].piece.name = 'queen';
             }
             break;
-<<<<<<< HEAD
-=======
-
         case 'king':
             let rookFile = 'A';
 
@@ -1472,7 +1460,6 @@ function implementMove(move) {
                 rookFile = 'H';
             }
             break;
->>>>>>> parent of 8902138 (Revert "Update client js")
     }
 
     //#endregion
