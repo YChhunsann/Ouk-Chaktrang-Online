@@ -1,4 +1,4 @@
-## Ouk Chaktrang
+## Makruk
 
 ![gameplay](./public/spring-mountain.png)
 
